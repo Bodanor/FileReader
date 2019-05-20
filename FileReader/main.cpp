@@ -54,7 +54,6 @@ int main(int argc, const char * argv[]) {
             if (x == database_count)
             {
                 cout << "Nothing has been found !\n";
-                cout << "Exit";
             }
             else
             {
