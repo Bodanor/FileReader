@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		83DB3D5522931577005ADFD7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83DB3D5422931577005ADFD7 /* main.cpp */; };
+		83E5A96C22944E2100D3272B /* libboost_filesystem-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E5A96822944E2100D3272B /* libboost_filesystem-mt.dylib */; };
+		83E5A96D22944E2100D3272B /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E5A96922944E2100D3272B /* libboost_filesystem.dylib */; };
+		83E5A96E22944E2100D3272B /* libboost_filesystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E5A96A22944E2100D3272B /* libboost_filesystem.a */; };
+		83E5A96F22944E2100D3272B /* libboost_filesystem-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E5A96B22944E2100D3272B /* libboost_filesystem-mt.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,10 @@
 /* Begin PBXFileReference section */
 		83DB3D5122931577005ADFD7 /* FileReader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FileReader; sourceTree = BUILT_PRODUCTS_DIR; };
 		83DB3D5422931577005ADFD7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		83E5A96822944E2100D3272B /* libboost_filesystem-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_filesystem-mt.dylib"; path = "../../../../usr/local/Cellar/boost/1.69.0_2/lib/libboost_filesystem-mt.dylib"; sourceTree = "<group>"; };
+		83E5A96922944E2100D3272B /* libboost_filesystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_filesystem.dylib; path = ../../../../usr/local/Cellar/boost/1.69.0_2/lib/libboost_filesystem.dylib; sourceTree = "<group>"; };
+		83E5A96A22944E2100D3272B /* libboost_filesystem.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_filesystem.a; path = ../../../../usr/local/Cellar/boost/1.69.0_2/lib/libboost_filesystem.a; sourceTree = "<group>"; };
+		83E5A96B22944E2100D3272B /* libboost_filesystem-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_filesystem-mt.a"; path = "../../../../usr/local/Cellar/boost/1.69.0_2/lib/libboost_filesystem-mt.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +40,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83E5A96C22944E2100D3272B /* libboost_filesystem-mt.dylib in Frameworks */,
+				83E5A96D22944E2100D3272B /* libboost_filesystem.dylib in Frameworks */,
+				83E5A96E22944E2100D3272B /* libboost_filesystem.a in Frameworks */,
+				83E5A96F22944E2100D3272B /* libboost_filesystem-mt.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +53,10 @@
 		83DB3D4822931576005ADFD7 = {
 			isa = PBXGroup;
 			children = (
+				83E5A96B22944E2100D3272B /* libboost_filesystem-mt.a */,
+				83E5A96822944E2100D3272B /* libboost_filesystem-mt.dylib */,
+				83E5A96A22944E2100D3272B /* libboost_filesystem.a */,
+				83E5A96922944E2100D3272B /* libboost_filesystem.dylib */,
 				83DB3D5322931577005ADFD7 /* FileReader */,
 				83DB3D5222931577005ADFD7 /* Products */,
 			);
@@ -244,6 +260,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/boost/1.69.0_2/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -252,6 +272,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/boost/1.69.0_2/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
