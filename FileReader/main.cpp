@@ -33,8 +33,8 @@ bool Check_for_directory()
 int main()
 {
     std::string IgnoredFile;
-    vector<string> DataBasesNames;
-    vector<int> DataBasesInt;
+    vector<string> DBNames;
+    vector<int> DBInt;
     bool Directory_exist = Check_for_directory();
     do
     {
@@ -49,52 +49,53 @@ int main()
                     IgnoredFile = x->path().filename().string();
                     if (!(IgnoredFile[0] == '.'))
                     {
-                        DataBasesNames.push_back(x->path().filename().string());
+                        DBNames.push_back(x->path().filename().string());
                     }
                     else {
                         NULL;
                     }
                 }
             }
-            if (DataBasesNames.size() > 0)
+            if (DBNames.size() > 0)
             {
-                for (int x = 0; x < DataBasesNames.size(); x++)
+                for (int x = 0; x < DBNames.size(); x++)
                 {
-                    cout << boost::format{"%1%: %2%"} % (x+1) % DataBasesNames[x]<<endl;
-                    DataBasesInt.push_back(x+1);
+                    cout << boost::format{"%1%: %2%"} % (x+1) % DBNames[x]<<endl;
+                    DBInt.push_back(x+1);
                 }
-                int ChoosenDB = 0;
+                int ChoosedDB = 0;
                 cout << "\nPlease choose a Database by enterring the number corresponding to the Database you want FileReaderDB to load-->";
-                cin >> ChoosenDB;
-                std::string path = "FileReaderDB/" + DataBasesNames[ChoosenDB-1];
-                std::ifstream Database (path);
-                if (Database)
+                cin >> ChoosedDB;
+                std::string DBPath = "FileReaderDB/" + DBNames[ChoosedDB-1];
+                std::ifstream DB (DBPath);
+                if (DB)
                 {
-                    cout << boost::format{"Loading Database <%1%> please be patient..."} % DataBasesNames[ChoosenDB-1]<<endl;
+                    cout << boost::format{"Loading Database <%1%> please be patient..."} % DBNames[ChoosedDB-1]<<endl;
                     vector<string> DBdata;
-                    std::string database_data;
-                    int DBdata_count = 0;
-                    while (getline(Database, database_data))
+                    std::string DB_data;
+                    int DBdata_CountedLines = 0;
+                    while (getline(DB, DB_data))
                     {
-                        DBdata_count++;
-                        DBdata.push_back(database_data);
+                        DBdata_CountedLines++;
+                        DBdata.push_back(DB_data);
                     }
                     cout << "\nDatabase Loaded Successfully !"<<endl;
-                    cout << boost::format{"\nDatabase <%1%> contains %2% lines"} % DataBasesNames[ChoosenDB-1] % DBdata_count <<endl;
+                    cout << boost::format{"\nDatabase <%1%> contains %2% lines"} % DBNames[ChoosedDB-1] % DBdata_CountedLines <<endl;
                     string DesiredData;
                     cout << "\nData you want to find in the Database -->";
                     cin >> DesiredData;
                     cout << "Looking for the desired data... Please be patient..."<<endl;
-                    for (int x = 0; x <= DBdata_count; x++)
+                    vector<int> DBdata_ContainingLine;
+                    for (int x = 0; x <= DBdata_CountedLines; x++)
                     {
                         if (DesiredData == DBdata[x])
                         {
-                            cout << boost::format{"Line %1% contains data <%2%>"} % x % DesiredData<<endl;
+                            cout << boost::format{"\nLine %1% contains data <%2%>\n"} % (x+1) % DesiredData<<endl;
+                            DBdata_ContainingLine.push_back(x+1);
                         }
-                        else
+                        else if ((DBdata_ContainingLine.size()) == 0 && (x == DBdata_CountedLines))
                         {
-                            cout << "Nothing has been found !\n";
-                            cout << "Exit";
+                            cout << "\nNothing Has Been Found !\n\n"<<endl;
                         }
                     }
                 }
